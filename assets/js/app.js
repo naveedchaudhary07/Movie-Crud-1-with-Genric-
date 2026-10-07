@@ -117,7 +117,7 @@ function onread(arr) {
   let result = "";
   arr.forEach((movi) => {
     result += `        
-        <div class="col-3 mb-4" id="${movi.id}">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4" id="${movi.id}">
           <div class="card h-100 moviecard">
             <div class="card-header">
               <div class="row d-flex justify-content-between">
@@ -179,7 +179,7 @@ function oncreate(eve) {
     state.moviesArr.unshift(newmovi_obj);
 
     let col = document.createElement("div");
-    col.className = "col-3 mb-4";
+    col.className = "col-sm-6 col-md-4 col-lg-3 mb-4";
     col.id = data.name;
     col.innerHTML = `<div class="card h-100 moviecard">
             <div class="card-header">
