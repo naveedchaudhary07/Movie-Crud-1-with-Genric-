@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    position: relative;
+    min-height: 100vh;
+
+}
+body::before{
+    content: "";
+    background-image:
+        url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba");
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.moviecard{
+ background: rgba(0, 123, 255, 0.12);
+ color: white;
+
+}
+
+figure{
+    height: 300px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+figure img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+figure figcaption{
+  position: absolute;
+  top: 30%;
+  left: 0;
+  height: 70%;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  transform: translateY(115%);
+  transition: all 0.7s ease-in-out;
+  overflow: auto;
+} 
+
+
+.moviecard :hover figure figcaption{
+   transform: translateY(0);
+}
+
+.card-header .movietitle{
+    height: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+}
+
+.backdrop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgb(0, 0, 0, 0.6);
+    display: none;
+    cursor: pointer;
+}
+
+.movimodel{
+    position:fixed;
+    top: 15%;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    height: 100%;
+    /* display:none; */
+    transform: translateY(115%);
+    transition: all 0.6s ease-in-out;
+    /* animation: slideupmoviemodel 0.7s ease-in-out; */
+}
+
+ .movimodel.active{
+ /* display:block; */
+ transform: translateY(0);
+}
+
+/* @keyframes slideupmoviemodel{
+    0%{
+       transform: translateY(115%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+} */
+
+
+.backdrop.active{
+ display: block;
+}
+
+
+.spinner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgb(0, 0, 0, 0.6);
+}
