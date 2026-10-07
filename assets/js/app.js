@@ -241,13 +241,13 @@ function ondeletehand(ele){
 }).then((result) => {
   if (result.isConfirmed){
      spinnerhandel(true)
-    let dlt_id= ele.closest(".col-3").id
+    let dlt_id= ele.closest(".col-sm-6").id
     let dlt_url =`${base_url}/movies/${dlt_id}.json`
     makeApicall(dlt_url,"DELETE")
     .then(data=>{
      let findidx= state.moviesArr.findIndex((ele)=> ele.id===dlt_id)
      state.moviesArr.splice(findidx,1)
-     ele.closest(".col-3").remove()
+     ele.closest(".col-sm-6").remove()
  })
   
   snackbar(`Your Movie with id ${dlt_id} deleted`, "success")
@@ -263,12 +263,12 @@ function ondeletehand(ele){
 
 
 function onedithand(ele){
-  spinnerhandel(true)
   ontoggle()
+  spinnerhandel(true)
   form_heading.innerText="Update Movie"
   add_btn.classList.add("d-none");
   update_btn.classList.remove("d-none");
- let edit_id= ele.closest(".col-3").id
+ let edit_id= ele.closest(".col-sm-6").id
  state.edit_id=edit_id;
  let edit_url= `${base_url}/movies/${edit_id}.json`
 
@@ -279,7 +279,7 @@ function onedithand(ele){
    poster_control.value = data.poster
    desc_control.value = data.description
    genre_control.value = data.genre
- })
+ }) 
  .catch((err)=>{
   cl(err)
  })
@@ -293,7 +293,6 @@ function onupdatehand(){
   spinnerhandel(true)
   let update_id=state.edit_id
   let old_obj= state.moviesArr.find((ele)=> ele.id=== update_id)
-  cl(old_obj)
    let updated_obj= {
     title: title_control.value,
     createAt: old_obj.createAt,
